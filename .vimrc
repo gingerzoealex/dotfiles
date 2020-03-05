@@ -1,4 +1,4 @@
-" install vim-plug if we don't already have it
+" install vim-plug if we dont already have it
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -70,6 +70,12 @@ Plug 'rstacruz/sparkup'
 Plug 'vim-ruby/vim-ruby'
 Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fix_on_save = 1
+let b:ale_fixers = {'javascript': ['eslint']}
+let b:ale_linters = {'javascript': ['eslint']}
+
 Plug 'tpope/vim-fugitive'
 "displays git related information in the number gutter
 Plug 'airblade/vim-gitgutter'
@@ -89,7 +95,7 @@ call plug#end()
 
 syntax on
 
-colorscheme molokayo
+" colorscheme molokayo
 let g:indent_guides_auto_colors = 2
 hi IndentGuidesOdd  guibg=purple   ctermbg=3
 hi IndentGuidesEven guibg=black ctermbg=4
@@ -129,4 +135,4 @@ set laststatus=2
 nmap <C-m> gcc
 " Hide search highlighting
 map <silent> <leader>nh :nohls <CR>
-" au FileType javascript,python,php,xml,yaml,ruby :RainbowLevelsOn
+" inoremap <au FileType javascript,python,php,xml,yaml,ruby :RainbowLevelsOn
